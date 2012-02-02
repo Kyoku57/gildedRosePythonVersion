@@ -1,6 +1,6 @@
 # Gilded Rose Kata (>Python version<)
 
-This example was change in Python. To obtain the origin code, please download the official git repository
+This example is the second exercice from CodeStory translated in Python. To obtain the origin code, please download the official git repository
 https://github.com/dgageot/CodeStoryStep2
 
 Have Fun
