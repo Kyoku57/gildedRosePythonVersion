@@ -1,4 +1,4 @@
-import Inn.*
+from Inn import *
 
 def testInn():
     myinn = Inn()
