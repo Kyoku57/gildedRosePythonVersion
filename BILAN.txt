@@ -1,0 +1,19 @@
+Mise à jour de la progression
+=============================
+
++45min
+------
+
+* création des Tests (à lancer via la commande 
+:: 
+ 
+  nosetest InnTest.py
+
+
++40min
+------
+
+* Refactoring léger d'updateQuality
+* Correction des tests
+
+
