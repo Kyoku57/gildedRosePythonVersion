@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import os
 from Item import *
+import bottle
+
+bottle.debug
 
 class Inn:
     def __init__(self):
@@ -65,10 +69,25 @@ class Inn:
                 self.decreaseSellIn(item)
                 self.increaseQuality(item, (-2 if item.getName()=="Conjured Mana Cake" else -1)*(2 if item.getSellIn()<0 else 1))
 
-
 def main():
+    bottle.run(host="localhost",port=8080)    
+
+@bottle.route('/myapp', method="get")
+def webapp():
     myapp = Inn()
-    myapp.updateQuality()
+
+    try:
+        numday=int(bottle.request.GET["incr"])
+    except:
+        numday=0
+    finally:
+        for i in range(0,numday): 
+            myapp.updateQuality()
+        template_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'interface.html')
+        return bottle.template(template_file,
+                               items=myapp.getList(),
+                               numday=numday)
+
 
 if __name__ == "__main__":
     main()

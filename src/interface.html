@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Listed items</title>
+    </head>
+
+    <body>
+        <h1>Listed item</h1>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>SellIn</th>
+                <th>Quality</th>
+            </tr>
+    
+            % for item in items: 
+            <tr>
+                <td>{{item.getName()}}</td>
+                <td>{{item.getSellIn()}}</td>
+                <td>{{item.getQuality()}}</td>
+            </tr>
+            % end
+        </table>
+
+        <p>Day {{numday}} - <a href="/myapp?incr={{numday+1}}">Next day</a></p>
+    </body>
+</html>
+

@@ -7,7 +7,7 @@ Mise à jour de la progression
 * création des Tests (à lancer via la commande 
 :: 
  
-  nosetest InnTest.py
+  $ nosetest InnTest.py
 
 
 +40min
@@ -17,3 +17,13 @@ Mise à jour de la progression
 * Correction des tests
 
 
++20min
+------
+
+* Création de l'interface Web via bottle
+::
+
+  $ pip install bottle
+  $ python Inn.py 
+
+Puis dans un navigateur http://localhost:8080/myapp
