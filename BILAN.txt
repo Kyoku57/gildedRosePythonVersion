@@ -27,3 +27,10 @@ Mise à jour de la progression
   $ python Inn.py 
 
 Puis dans un navigateur http://localhost:8080/myapp
+
++10min
+------
+
+* Amélioration graphique légère
+
+
