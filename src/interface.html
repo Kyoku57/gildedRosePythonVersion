@@ -3,6 +3,33 @@
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <title>Listed items</title>
+        <style type="text/css">
+            table{
+                border-collapse: collapse;
+            }
+
+            th{
+                font-weight: bold;
+                background-color: #DDD;
+            }
+
+            th,td{
+                border: solid 1px grey;
+                padding: 5px;
+            }
+            
+            .right{
+                text-align: right;
+            }
+
+            .left{
+                text-align: left;
+            }
+
+            .center{
+                text-align: center;
+            }
+        </style>
     </head>
 
     <body>
@@ -17,9 +44,9 @@
     
             % for item in items: 
             <tr>
-                <td>{{item.getName()}}</td>
-                <td>{{item.getSellIn()}}</td>
-                <td>{{item.getQuality()}}</td>
+                <td class="left">{{item.getName()}}</td>
+                <td class="right">{{item.getSellIn()}}</td>
+                <td class="right">{{item.getQuality()}}</td>
             </tr>
             % end
         </table>
