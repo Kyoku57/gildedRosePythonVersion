@@ -24,10 +24,12 @@ def testInnNormalItem():
         assert(after_item[0]==before_item[0]-1)
         
         # Test if Quality decrease
-        if before_item[0]<0:
-            assert(after_item[1]==before_item[1]-2)
+        if after_item[0]<0:
+            if before_item[1]>=2:    
+                assert(after_item[1]==before_item[1]-2)
         else:
-            assert(after_item[1]==before_item[1]-1)
+            if before_item[1]>=1:
+                assert(after_item[1]==before_item[1]-1)
 
         # Test if Quantity is always > 0        
         assert(after_item[1]>=0 and after_item[1]<=50)
@@ -36,14 +38,14 @@ def testInnNormalItem():
 def testConjuredItem():
     """Conjured Item
     Like Normal but Quality decrease twice as fast
-    Exemple, item[2] 
+    Exemple, item[2]
     """
     myinn = Inn()
     for i in range(1,50):
         # Prepare before and after updateQuality
-        before_item = myinn.getItem(2)
+        before_item = myinn.getItem(5)
         myinn.updateQuality()
-        after_item = myinn.getItem(2)
+        after_item = myinn.getItem(5)
 
         # Test if SellIn decrease
         print "iteration="+str(i),
@@ -52,10 +54,12 @@ def testConjuredItem():
         assert(after_item[0]==before_item[0]-1)
         
         # Test if Quality decrease
-        if before_item[0]<0:
-            assert(after_item[1]==before_item[1]-4)
+        if after_item[0]<0:
+            if before_item[1]>=4:
+                assert(after_item[1]==before_item[1]-4)
         else:
-            assert(after_item[1]==before_item[1]-2)
+            if before_item[1]>=2:
+                assert(after_item[1]==before_item[1]-2)
 
         # Test if Quantity is always > 0        
         assert(after_item[1]>=0 and after_item[1]<=50)
@@ -83,7 +87,8 @@ def testInnAgeBrieItem():
         assert(after_item[0]==before_item[0]-1)
         
         # Test if Quality increase
-        assert(after_item[1]==before_item[1]+1)
+        if before_item[1]<50:
+            assert(after_item[1]==before_item[1]+1)
         
         # Test if Quantity is always > 0 and <50
         assert(after_item[1]>=0 and after_item[1]<=50)
@@ -136,15 +141,16 @@ def testInnBackStageItem():
         
         # Test if Quality increase
         addquality=0
-        if before_item[0]<0:
+        if after_item[0]<0:
             assert(after_item[1]==0)
-        if before_item[0]>=0:
+        if after_item[0]>=0:
             addquality=3
-        if before_item[0]>5:
+        if after_item[0]>5:
             addquality=2
-        if before_item[0]>10:
+        if after_item[0]>10:
             addquality=1
-        assert(after_item[1]==before_item[1]+addquality)
+        if before_item[1]<47:
+            assert(after_item[1]==before_item[1]+addquality)
         
         # Test if Quantity is always > 0 and <50
         assert(after_item[1]>=0 and after_item[1]<=50)

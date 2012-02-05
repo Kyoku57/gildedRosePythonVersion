@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*- 
 
 class Item:
+    """Item Class
+    Rule : not modify this class
+    """
     def __init__(self, name, sellin, quality):
         self.__name=name
         self.__sellin=sellin
