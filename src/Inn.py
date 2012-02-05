@@ -15,6 +15,11 @@ class Inn:
     def getList(self):
         return self.__itemslist
 
+    def getItem(self, pos):
+        return (self.__itemslist[pos].getSellIn(), 
+                self.__itemslist[pos].getQuality())
+
+
     def updateQuality(self):
         for item in self.__itemslist:
             if item.getName()=="Aged Brie" and item.getName()=="Backstage passes to a TAFKL80ETC concert":
