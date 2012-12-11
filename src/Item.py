@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- 
 
-class Item:
+class Item(object):
     def __init__(self, name, sellin, quality):
         self.__name=name
         self.__sellin=sellin

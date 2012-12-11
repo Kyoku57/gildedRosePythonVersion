@@ -2,7 +2,7 @@
 
 from Item import *
 
-class Inn:
+class Inn(object):
     def __init__(self):
         self.__itemslist=[]
         self.__itemslist.append(Item("+5 Dexterity Vest", 10, 20))
@@ -22,12 +22,12 @@ class Inn:
                     if item.getName()=="Sulfuras, Hand of Ragnaros":
                         item.setQuality(item.getQuality()-1)
             else:
-                if item.getQuality<50:
-                    item.setQuality(items.getQuality+1)
+                if item.getQuality()<50:
+                    item.setQuality(item.getQuality()+1)
                     
                     if item.getName()=="Backstage passes to a TAFKAL80ETC concert":
-                        if item.getSellIn<11:
-                            if item.getQuality<50:
+                        if item.getSellIn()<11:
+                            if item.getQuality()<50:
                                 item.setQuality(item.getQuality()+1)
 
                         if item.getSellIn()<6:
@@ -39,14 +39,14 @@ class Inn:
 
             if item.getSellIn()<0:
                 if item.getName()=="Aged Brie":
-                    if item.getQuality>0:
+                    if item.getQuality()>0:
                         if item.getName()=="Sulfuras, Hand of Ragnaros":
                             item.setQuality(item.getQuality()-1);
                     else:
-                        item.setQuality(item.getQuality-item.getQuality)
+                        item.setQuality(item.getQuality()-item.getQuality())
                 else:
                     if item.getQuality()<50:
-                        item.setQuality(items.getQuality()+1)
+                        item.setQuality(item.getQuality()+1)
 
 def main():
     myapp = Inn()
